@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="أيقونة السيدة العذراء مريم">
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#FFF7E6" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#F6E7C8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#8CCFE8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#DFF5FC"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </radialGradient>
+    <linearGradient id="veil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8CCFE8"/>
+      <stop offset="100%" stop-color="#5FB3D4"/>
+    </linearGradient>
+    <linearGradient id="robe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDFDFF"/>
+      <stop offset="100%" stop-color="#E8F3FA"/>
+    </linearGradient>
+    <linearGradient id="child" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF2D6"/>
+      <stop offset="100%" stop-color="#F0D9A6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="700" fill="url(#bg)"/>
+
+  <g fill="rgba(140,207,232,0.55)">
+    <circle cx="70" cy="80" r="3"/><circle cx="520" cy="60" r="2.5"/><circle cx="120" cy="180" r="2"/>
+    <circle cx="500" cy="200" r="3"/><circle cx="55" cy="420" r="2.5"/><circle cx="545" cy="430" r="2"/>
+    <circle cx="40" cy="620" r="2"/><circle cx="565" cy="620" r="3"/><circle cx="480" cy="90" r="2"/>
+    <circle cx="90" cy="560" r="2.5"/><circle cx="510" cy="560" r="2"/>
+  </g>
+
+  <ellipse cx="300" cy="340" rx="260" ry="300" fill="url(#halo)"/>
+
+  <!-- هالة الضوء -->
+  <circle cx="300" cy="250" r="120" fill="none" stroke="rgba(255,247,230,0.8)" stroke-width="2"/>
+  <circle cx="300" cy="250" r="140" fill="none" stroke="rgba(255,247,230,0.5)" stroke-width="1.5"/>
+
+  <!-- الجسم والعباءة -->
+  <path d="M300 500 Q360 500 380 470 Q360 640 330 680 Q315 700 300 700 Q285 700 270 680 Q240 640 220 470 Q240 500 300 500 Z" fill="url(#robe)"/>
+
+  <!-- الطفل يسوع -->
+  <g>
+    <ellipse cx="345" cy="455" rx="26" ry="30" fill="url(#child)"/>
+    <circle cx="345" cy="430" r="18" fill="url(#child)"/>
+    <path d="M345 448 q0 6 -6 8 q12 2 12 -8 Z" fill="#C9A86A" stroke="none"/>
+  </g>
+
+  <!-- الرأس والحجاب -->
+  <circle cx="300" cy="245" r="34" fill="url(#robe)"/>
+  <path d="M300 205 Q300 205 300 210 M300 210 Q340 220 350 270 Q355 310 340 360 Q330 430 320 500 Q300 505 300 500 Q300 505 280 500 Q270 430 260 360 Q245 310 250 270 Q260 220 300 210 Z" fill="url(#veil)"/>
+  <path d="M300 215 Q330 235 338 280 Q342 320 330 380 Q322 450 315 505" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="3"/>
+
+  <!-- الوجه -->
+  <path d="M278 240 Q300 226 322 240 Q326 260 322 274 Q300 288 278 274 Q274 260 278 240 Z" fill="#F6E3CE"/>
+
+  <!-- أطراف الحجاب -->
+  <path d="M300 205 Q300 205 300 210 M262 270 Q258 250 266 236" fill="none" stroke="url(#veil)" stroke-width="10"/>
+  <path d="M338 270 Q342 250 334 236" fill="none" stroke="url(#veil)" stroke-width="10"/>
+
+  <!-- نجوم ذهبية -->
+  <g fill="#C9A86A">
+    <path d="M300 118 l6 16 17 1 -13 11 4 17 -14 -9 -14 9 4 -17 -13 -11 17 -1 Z" opacity="0.85"/>
+    <path d="M150 300 l4 10 11 1 -8 7 2 10 -9 -6 -9 6 2 -10 -8 -7 11 -1 Z" opacity="0.5"/>
+    <path d="M455 310 l4 10 11 1 -8 7 2 10 -9 -6 -9 6 2 -10 -8 -7 11 -1 Z" opacity="0.5"/>
+    <path d="M190 150 l3 8 9 1 -7 6 2 9 -7 -5 -7 5 2 -9 -7 -6 9 -1 Z" opacity="0.35"/>
+  </g>
+
+  <!-- وردة بيضاء صغيرة -->
+  <g transform="translate(420 560)">
+    <circle cx="0" cy="0" r="14" fill="rgba(255,255,255,0.9)" stroke="#C9A86A" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="7" fill="#F6E3CE"/>
+    <path d="M-16 10 Q0 26 16 10" fill="none" stroke="#9BBFCD" stroke-width="3"/>
+    <path d="M-16 10 q6 -8 12 0" fill="none" stroke="#9BBFCD" stroke-width="3"/>
+  </g>
+
+  <!-- حمامة بيضاء بسيطة -->
+  <g transform="translate(200 470)">
+    <path d="M-18 6 Q-8 -8 0 0 Q8 -8 18 6 Q8 4 0 8 Q-8 4 -18 6 Z" fill="rgba(255,255,255,0.92)"/>
+    <circle cx="-16" cy="3" r="1.6" fill="#263746"/>
+  </g>
+</svg>

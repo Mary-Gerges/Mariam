@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="خريطة رمزية لمسار رحلة العائلة المقدسة من الناصرة إلى بيت لحم إلى مصر ثم العودة إلى الناصرة">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf7fc"/>
+      <stop offset="55%" stop-color="#fbfdfe"/>
+      <stop offset="100%" stop-color="#f6ecd7"/>
+    </linearGradient>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5fb3d4"/>
+    </marker>
+    <marker id="arrGold" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9a86a"/>
+    </marker>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7d6"/>
+      <stop offset="100%" stop-color="#f6d98a"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)"/>
+
+  <!-- نجوم -->
+  <g fill="#dbeaf2">
+    <circle cx="120" cy="70" r="2.5"/>
+    <circle cx="200" cy="110" r="2"/>
+    <circle cx="90" cy="170" r="2"/>
+    <circle cx="640" cy="50" r="2.5"/>
+    <circle cx="700" cy="140" r="2"/>
+  </g>
+
+  <!-- هلال -->
+  <g transform="translate(90,90)">
+    <circle r="26" fill="#f3d98b"/>
+    <circle r="22" cx="-9" cy="-6" fill="#eaf7fc"/>
+  </g>
+
+  <!-- مسار الذهاب -->
+  <path d="M600 140 C 570 190, 545 200, 520 260 C 500 300, 460 320, 300 360"
+        fill="none" stroke="#5fb3d4" stroke-width="4" stroke-dasharray="12 9"
+        stroke-linecap="round" marker-end="url(#arrBlue)"/>
+  <!-- مسار العودة -->
+  <path d="M300 360 C 420 320, 500 300, 560 220"
+        fill="none" stroke="#c9a86a" stroke-width="3" stroke-dasharray="3 7"
+        stroke-linecap="round" opacity="0.85" marker-end="url(#arrGold)"/>
+
+  <!-- الناصرة -->
+  <circle cx="600" cy="140" r="13" fill="#ffffff" stroke="#5fb3d4" stroke-width="4"/>
+  <circle cx="600" cy="140" r="6" fill="#5fb3d4"/>
+  <text x="600" y="105" text-anchor="middle" direction="rtl" font-family="Cairo, sans-serif" font-size="22" font-weight="700" fill="#3f8fb0">الناصرة</text>
+
+  <!-- نجمة بيت لحم -->
+  <g transform="translate(520,260)">
+    <path d="M0 -20 L6 -6 L22 -6 L9 4 L14 20 L0 10 L-14 20 L-9 4 L-22 -6 L-6 -6 Z"
+          fill="url(#starGlow)" stroke="#c9a86a" stroke-width="1.5"/>
+  </g>
+  <text x="520" y="315" text-anchor="middle" direction="rtl" font-family="Cairo, sans-serif" font-size="22" font-weight="700" fill="#3f8fb0">بيت لحم</text>
+
+  <!-- مصر -->
+  <circle cx="300" cy="360" r="13" fill="#ffffff" stroke="#c9a86a" stroke-width="4"/>
+  <circle cx="300" cy="360" r="6" fill="#c9a86a"/>
+  <text x="300" y="410" text-anchor="middle" direction="rtl" font-family="Cairo, sans-serif" font-size="24" font-weight="700" fill="#8a6d2f">مصر</text>
+
+  <!-- وسيلة الإيضاح -->
+  <g transform="translate(40,30)">
+    <rect width="250" height="122" rx="14" fill="#ffffff" opacity="0.92"/>
+    <text x="125" y="34" text-anchor="middle" direction="rtl" font-family="Cairo, sans-serif" font-size="18" font-weight="700" fill="#263746">رحلة العائلة المقدسة</text>
+    <line x1="26" y1="60" x2="82" y2="60" stroke="#5fb3d4" stroke-width="4" stroke-dasharray="7 5"/>
+    <text x="224" y="67" text-anchor="end" direction="rtl" font-family="Cairo, sans-serif" font-size="15" fill="#5c6b7a">الناصرة ← بيت لحم ← مصر</text>
+    <line x1="26" y1="90" x2="82" y2="90" stroke="#c9a86a" stroke-width="3" stroke-dasharray="3 5"/>
+    <text x="224" y="97" text-anchor="end" direction="rtl" font-family="Cairo, sans-serif" font-size="15" fill="#5c6b7a">العودة إلى الناصرة</text>
+    <path d="M26 108 L32 116 L26 124 L20 116 Z" fill="#f6d98a" stroke="#c9a86a" stroke-width="1"/>
+    <text x="224" y="121" text-anchor="end" direction="rtl" font-family="Cairo, sans-serif" font-size="15" fill="#5c6b7a">نجمة بيت لحم</text>
+  </g>
+</svg>

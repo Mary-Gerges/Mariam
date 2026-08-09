@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g-sermon-placeholder-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EAF6FF"/>
+      <stop offset="100%" stop-color="#9FD6EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#g-sermon-placeholder-2)"/>
+  
+  <g fill="rgba(255,255,255,0.45)">
+    <circle cx="70" cy="80" r="3"/><circle cx="440" cy="70" r="2.5"/><circle cx="120" cy="180" r="2"/>
+    <circle cx="400" cy="200" r="3"/><circle cx="70" cy="420" r="2.5"/><circle cx="440" cy="430" r="2"/>
+    <circle cx="60" cy="580" r="2"/><circle cx="60" cy="300" r="2"/><circle cx="450" cy="320" r="2"/>
+  </g>
+  
+<g transform="translate(256 250)">
+  <rect x="244" y="208" width="24" height="84" rx="6" fill="#5FB3D4"/>
+  <rect x="214" y="238" width="84" height="24" rx="6" fill="#5FB3D4"/>
+  <circle cx="256" cy="250" r="120" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+</g>
+  <text x="256" y="420" font-family="Cairo, Segoe UI, Arial" font-size="22" font-weight="700" fill="rgba(38,55,70,0.75)" text-anchor="middle">صورة تجريبية - عظة</text>
+</svg>
