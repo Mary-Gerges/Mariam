@@ -35,10 +35,6 @@ export default function LifeStory() {
                   stage.tall ? " story-stage--tall" : ""
                 }`}
               >
-                <span className="story-stage-num" aria-hidden="true">
-                  {index + 1}
-                </span>
-
                 <div className="story-stage-media">
                   <img
                     src={stage.image}
@@ -51,7 +47,12 @@ export default function LifeStory() {
                 </div>
 
                 <div className="story-stage-body">
-                  <h3>{stage.title}</h3>
+                  <div className="story-stage-head">
+                    <span className="story-stage-num" aria-hidden="true">
+                      {index + 1}
+                    </span>
+                    <h3>{stage.title}</h3>
+                  </div>
                   {stage.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}

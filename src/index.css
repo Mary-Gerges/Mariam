@@ -1447,6 +1447,17 @@ button {
   margin-bottom: 12px;
 }
 
+.story-stage-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.story-stage-head h3 {
+  margin-bottom: 12px;
+  flex: 1;
+}
+
 .story-stage-body p {
   color: var(--text-soft);
   line-height: 2;
@@ -1638,8 +1649,8 @@ button {
 @media (max-width: 900px) {
   .story-stage {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding-block: 44px;
+    gap: 20px;
+    padding-block: 40px;
   }
 
   .story-stage-media,
@@ -1650,23 +1661,36 @@ button {
   }
 
   .story-timeline::before {
-    right: 18px;
+    right: 16px;
     transform: none;
   }
 
+  .story-stage-media,
+  .story-stage-body {
+    padding-inline-start: 40px;
+  }
+
   .story-stage-num {
-    top: 4px;
-    right: 18px;
-    transform: translate(50%, 0);
+    top: auto;
+    right: auto;
+    transform: none;
+    position: static;
     width: 44px;
     height: 44px;
+    flex-shrink: 0;
+  }
+
+  .story-stage-head {
+    align-items: center;
+  }
+
+  .story-stage-head h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
   }
 
   .story-stage-media img {
-    margin-inline-start: 20px;
-  }
-
-  .story-stage-body {
-    padding-inline-start: 20px;
+    margin-inline-start: 0;
+    border-radius: var(--radius);
   }
 }
