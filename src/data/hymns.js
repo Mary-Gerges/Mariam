@@ -152,10 +152,9 @@ export const hymns = [
     id: 17,
     title: "العشرة أوتار - يا م ر ي م",
     description:
-      "رابط تجريبي (Placeholder) — ضع رابط الترنيمة الحقيقية في الحقلين youtubeId و youtubeUrl.",
-    youtubeId: "dQw4w9WgXcQ",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    image: "/images/hymn-placeholder-4.svg",
+      "",
+    youtubeId: "f5q2G5Wk5Wk",
+    youtubeUrl: "https://youtu.be/f5q2G5Wk5Wk?si=Hyn12eICU106-nn7",
     type: "مدايح",
   },
   {
