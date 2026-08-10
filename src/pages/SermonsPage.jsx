@@ -18,11 +18,13 @@ export default function SermonsPage() {
 
   const filtered = sermons.filter((sermon) => {
     const matchesCategory = category === "all" || sermon.category === category;
-    const matchesQuery =
-      sermon.title.includes(query) ||
-      sermon.speaker.includes(query) ||
-      sermon.description.includes(query);
-    return matchesCategory && matchesQuery;
+    const q = query.trim().toLowerCase();
+    if (!q) return matchesCategory;
+    const haystack = [sermon.title, sermon.speaker]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return matchesCategory && haystack.includes(q);
   });
 
   return (

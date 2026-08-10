@@ -20,7 +20,7 @@ export default function Virtues() {
         <div className="grid virtues-grid">
           {siteInfo.virtues.map((virtue, index) => (
             <Reveal key={virtue.title} delay={(index % 5) + 1} className="virtue-card">
-              <div className={`virtue-icon ${index === 4 ? "gold" : ""}`} aria-hidden="true">
+              <div className="virtue-icon" aria-hidden="true">
                 <Star size={28} />
               </div>
               <h3 className="virtue-title">{virtue.title}</h3>

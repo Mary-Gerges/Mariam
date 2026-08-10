@@ -725,11 +725,6 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
-.virtue-icon.gold {
-  background: radial-gradient(circle, var(--gold-soft), var(--gold));
-  color: #4a3b1e;
-}
-
 .virtue-title {
   font-family: var(--font-title);
   font-size: 1.25rem;
@@ -1644,6 +1639,209 @@ button {
   font-size: 0.85rem;
   padding: 5px 18px;
   border-radius: 999px;
+}
+
+/* ============================================================
+   ألقاب ورموز السيدة العذراء (MaryTitles)
+   ============================================================ */
+
+.section--titles {
+  background:
+    radial-gradient(700px 320px at 15% -10%, var(--secondary-soft) 0%, transparent 60%),
+    radial-gradient(700px 320px at 85% 110%, var(--secondary-soft) 0%, transparent 60%);
+}
+
+.titles-intro {
+  max-width: 780px;
+  margin: -32px auto 0;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 2.1;
+}
+
+.titles-intro p + p {
+  margin-top: 12px;
+}
+
+.titles-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 34px auto 44px;
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+.titles-divider::before,
+.titles-divider::after {
+  content: "";
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.titles-divider::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.title-grid {
+  gap: 28px;
+}
+
+.title-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px 26px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.title-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.title-card:hover::before {
+  opacity: 1;
+}
+
+.title-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.title-card:active {
+  transform: translateY(-4px) scale(0.99);
+}
+
+.title-badge {
+  position: absolute;
+  top: 14px;
+  inset-inline-end: 14px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.title-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: 26px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--primary-deep);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.title-card:hover .title-icon {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #fff;
+  transform: scale(1.06);
+}
+
+.title-card-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.title-card-desc {
+  position: relative;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 2;
+  width: 100%;
+}
+
+.title-card-desc.is-collapsed {
+  max-height: 132px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+
+.title-card-quote {
+  margin-top: 14px;
+  padding: 12px 18px;
+  border-inline-start: 4px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-title);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--primary-deep);
+}
+
+.title-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.title-toggle:hover {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #fff;
+}
+
+.title-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.title-toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.title-card-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .title-card-desc.is-collapsed {
+    max-height: 150px;
+  }
 }
 
 @media (max-width: 900px) {

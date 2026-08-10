@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Reveal from "./Reveal.jsx";
 import SectionHead from "./SectionHead.jsx";
-import { BookOpen, Quote, Sparkles } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 import { lifeStory } from "../data/lifeStory.js";
 
 export default function LifeStory() {
@@ -101,25 +101,6 @@ export default function LifeStory() {
                   </span>
                 )}
               </Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--alt" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <SectionHead kicker="من الكتاب المقدس" title="آيات مميزة عن السيدة العذراء" />
-          <div className="grid grid-3">
-            {lifeStory.verses.map((verse, index) => (
-              <Reveal
-                key={index}
-                delay={(index % 3) + 1}
-                className="verse-card"
-              >
-                <Quote className="verse-icon" size={22} aria-hidden="true" />
-                <p className="verse-text">{verse.text}</p>
-                <span className="verse-ref">{verse.ref}</span>
-              </Reveal>
             ))}
           </div>
         </div>

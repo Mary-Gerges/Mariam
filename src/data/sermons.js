@@ -111,8 +111,8 @@ export const sermons = [
     id: 11,
     title: "صفات القديسة العذراء مريم",
     speaker: "ابونا أغسطينوس موريس",
-    youtubeId: "aZ15ggNYne4",
-    youtubeUrl: "https://www.youtube.com/watch?v=aZ15ggNYne4",
+    youtubeId: "0GmLNALQr9Y",
+    youtubeUrl: "https://youtu.be/0GmLNALQr9Y?si=E9s3lWD2rYfX4x4X",
     category: "روحية",
   },
   {
