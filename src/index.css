@@ -689,52 +689,154 @@ button {
 }
 
 /* ============================================================
-   الفضائل
+   الفضائل (جديد — 10 فضائل)
    ============================================================ */
 
-.virtues-grid {
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+.virtues-new-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.virtue-card {
-  text-align: center;
-  padding: 32px 18px;
+.virtue-new-card {
+  position: relative;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px 28px;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.virtue-new-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+  opacity: 0;
   transition: var(--transition);
 }
 
-.virtue-card:hover {
-  transform: translateY(-8px);
+.virtue-new-card:hover::before {
+  opacity: 1;
+}
+
+.virtue-new-card:hover {
+  transform: translateY(-6px);
   box-shadow: var(--shadow-md);
   border-color: var(--gold);
 }
 
-.virtue-icon {
-  width: 66px;
-  height: 66px;
-  margin: 0 auto 16px;
+.virtue-new-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--secondary) 0%, var(--primary) 100%);
-  color: #fff;
-  box-shadow: var(--shadow-sm);
-}
-
-.virtue-title {
+  font-weight: 800;
+  font-size: 0.95rem;
   font-family: var(--font-title);
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 6px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
 }
 
-.virtue-text {
+.virtue-new-card:hover .virtue-new-num {
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+}
+
+.virtue-new-title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.virtue-new-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+.virtue-new-quote svg {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.virtue-new-quote p {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--primary-deep);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.virtue-new-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.virtue-new-verse {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-inline-start: 3px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: 14px;
+}
+
+.virtue-new-verse-icon {
+  color: var(--gold);
+}
+
+.virtue-new-verse blockquote {
+  font-family: var(--font-title);
+  font-size: 0.98rem;
+  line-height: 2;
+  color: var(--primary-deep);
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.virtue-new-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--white);
+  color: var(--primary-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  align-self: flex-start;
+}
+
+.virtue-new-message {
   color: var(--text-soft);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 2;
+  margin: 0;
 }
 
 /* ============================================================
@@ -773,55 +875,376 @@ button {
 }
 
 /* ============================================================
-   كتب (Book Cards)
+   كتب (Books — PDF Library)
    ============================================================ */
 
-.book-card {
-  position: relative;
-  padding: 28px;
-  gap: 14px;
+/* --- الشبكة --- */
+.bk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+  justify-items: center;
+  justify-content: center;
 }
 
-.book-cover {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius);
+/* --- البطاقة --- */
+.bk-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  margin-bottom: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
-.book-cover img {
+.bk-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+/* --- الغلاف --- */
+.bk-cover {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(160deg, var(--secondary-soft) 0%, var(--secondary) 100%);
+  overflow: hidden;
+}
+
+.bk-cover-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.bk-cover-link:hover {
+  opacity: 0.92;
+}
+
+.bk-cover-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  display: block;
 }
 
-.book-card:hover .book-cover img {
-  transform: scale(1.05);
+.bk-cover-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 20px;
 }
 
-.book-category {
-  align-self: flex-start;
-  background: var(--secondary);
-  color: var(--primary-deep);
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
+.bk-cover-lucide {
+  color: var(--primary);
+  opacity: 0.5;
 }
 
-.book-title {
+.bk-cover-label {
   font-family: var(--font-title);
-  font-size: 1.3rem;
+  font-size: 0.85rem;
   font-weight: 700;
+  color: var(--primary-deep);
+  opacity: 0.6;
+  line-height: 1.6;
 }
 
-.book-author {
+.bk-pdf-badge {
+  position: absolute;
+  top: 12px;
+  inset-inline-end: 12px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.35);
+}
+
+/* --- المحتوى --- */
+.bk-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  text-align: center;
+}
+
+.bk-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.bk-author {
   color: var(--primary-deep);
   font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.bk-desc {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  flex: 1;
+}
+
+.bk-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.bk-btn {
+  flex: 1;
+  min-width: 0;
+}
+
+/* --- البحث --- */
+.bk-search {
+  position: relative;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.bk-search-icon {
+  position: absolute;
+  inset-inline-start: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-deep);
+  pointer-events: none;
+}
+
+.bk-search-input {
+  width: 100%;
+  padding: 14px 50px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+
+.bk-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(140, 207, 232, 0.2);
+}
+
+.bk-search-input::placeholder {
+  color: #9db3c0;
+}
+
+/* --- التصنيفات --- */
+.bk-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.bk-filter-btn {
+  padding: 9px 22px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--white);
+  color: var(--text-soft);
+  font-weight: 600;
   font-size: 0.92rem;
+  transition: var(--transition);
+}
+
+.bk-filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+
+.bk-filter-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- الحالة الفارغة --- */
+.bk-empty {
+  text-align: center;
+  padding: 72px 24px;
+}
+
+.bk-empty-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.bk-empty h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.bk-empty p {
+  color: var(--text-soft);
+  font-size: 1.02rem;
+  margin-bottom: 24px;
+}
+
+/* --- PDF Modal --- */
+.bk-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 55, 70, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease both;
+}
+
+.bk-modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 960px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  animation: modalUp 0.4s ease both;
+}
+
+.bk-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bk-modal-title {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bk-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.bk-modal-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.bk-modal-close:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.bk-modal-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.bk-pdf-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 70vh;
+  border: none;
+}
+
+/* --- التجاوب --- */
+@media (max-width: 640px) {
+  .bk-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .bk-cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  .bk-body {
+    padding: 18px 18px 20px;
+  }
+
+  .bk-title {
+    font-size: 1.08rem;
+  }
+
+  .bk-modal {
+    max-height: 96vh;
+    border-radius: var(--radius);
+  }
+
+  .bk-modal-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+  }
+
+  .bk-modal-title {
+    font-size: 1rem;
+  }
+
+  .bk-pdf-frame {
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .bk-actions {
+    flex-direction: column;
+  }
 }
 
 /* ============================================================
@@ -1252,7 +1675,7 @@ button {
 
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(3, 1fr); }
-  .virtues-grid { grid-template-columns: repeat(3, 1fr); }
+  .virtues-new-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { gap: 36px; }
 }
 
@@ -1329,13 +1752,13 @@ button {
 @media (max-width: 640px) {
   .section { padding-block: 64px; }
   .grid-3, .grid-2, .grid-4 { grid-template-columns: 1fr; }
-  .virtues-grid { grid-template-columns: repeat(2, 1fr); }
+  .virtues-new-grid { grid-template-columns: repeat(2, 1fr); }
   .hero { min-height: auto; }
   .card-actions .btn { flex: 1; }
 }
 
 @media (max-width: 420px) {
-  .virtues-grid { grid-template-columns: 1fr; }
+  .virtues-new-grid { grid-template-columns: 1fr; }
   .btn { width: 100%; }
   .hero-actions .btn { width: 100%; }
 }
@@ -1841,6 +2264,979 @@ button {
 @media (max-width: 640px) {
   .title-card-desc.is-collapsed {
     max-height: 150px;
+  }
+}
+
+/* ============================================================
+   المشاعر والردود الروحية للعذراء (SpiritualResponses)
+   ============================================================ */
+
+.sr-timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-right: 48px;
+}
+
+.sr-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 22px;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--gold) 50%,
+    var(--gold-soft) 100%
+  );
+  border-radius: 3px;
+  opacity: 0.45;
+}
+
+.sr-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  margin-bottom: 36px;
+  transition: var(--transition);
+}
+
+.sr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.sr-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+}
+
+.sr-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px 0;
+}
+
+.sr-card-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  font-family: var(--font-title);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.sr-card:hover .sr-card-num {
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+}
+
+.sr-card-title {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.sr-card-body {
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- الحقول ---------- */
+.sr-field {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.sr-field-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.sr-field-icon--situation {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--white);
+}
+
+.sr-field-icon--response {
+  background: linear-gradient(135deg, #fdf6e9, var(--gold));
+  color: #6b5422;
+}
+
+.sr-field-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--primary-deep);
+  margin-bottom: 4px;
+}
+
+.sr-field-content p {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 2;
+  margin: 0;
+}
+
+/* ---------- الآية ---------- */
+.sr-verse-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px 20px;
+  border-inline-start: 4px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+}
+
+.sr-verse-block--extra {
+  background: linear-gradient(135deg, #fdf6e9, var(--secondary-soft));
+}
+
+.sr-verse-icon {
+  color: var(--gold);
+}
+
+.sr-verse-text {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  line-height: 2.1;
+  color: var(--primary-deep);
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.sr-verse-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   أعياد السيدة العذراء مريم (MaryFeasts)
+   ============================================================ */
+
+.mf-timeline {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 0 40px;
+}
+
+.mf-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--primary) 0%,
+    var(--gold) 50%,
+    var(--gold-soft) 100%
+  );
+  border-radius: 3px;
+  opacity: 0.4;
+}
+
+.mf-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.mf-row--left .mf-card {
+  grid-column: 1;
+}
+
+.mf-row--left .mf-dot {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.mf-row--right .mf-card {
+  grid-column: 3;
+}
+
+.mf-row--right .mf-dot {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.mf-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--gold);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--secondary-soft);
+}
+
+.mf-dot-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.mf-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.mf-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.mf-card:hover::before {
+  opacity: 1;
+}
+
+.mf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold);
+}
+
+.mf-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mf-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.mf-card:hover .mf-card-icon {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+}
+
+.mf-card-num {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+.mf-card-title {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.mf-card-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.mf-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+}
+
+.mf-date--miladi {
+  background: linear-gradient(135deg, #fdf6e9, var(--gold-soft));
+  color: #6b5422;
+}
+
+.mf-card-summary {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.mf-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.mf-toggle:hover {
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #fff;
+}
+
+.mf-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.mf-toggle-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.mf-card-details {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-inline-start: 3px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  animation: fadeUp 0.35s ease both;
+}
+
+.mf-card-details p {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 2.1;
+  margin: 0;
+}
+
+/* ---------- البطاقة الختامية ---------- */
+.mf-conclusion {
+  margin-top: 20px;
+}
+
+.mf-conclusion-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 36px;
+  background: linear-gradient(
+    135deg,
+    #fdf6e9 0%,
+    var(--gold-soft) 50%,
+    #fdf6e9 100%
+  );
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.mf-conclusion-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+}
+
+.mf-conclusion-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.mf-conclusion-title {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.mf-conclusion-text {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 2.2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   الإيمان الذي لا يتزعزع — MaryFaith (Redesign)
+   ============================================================ */
+
+.mff-hero {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 340px) 1fr;
+  gap: 36px;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto 52px;
+}
+
+/* ---------- الأعمدة الجانبية ---------- */
+.mff-side {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------- الصورة — العمود الأوسط ---------- */
+.mff-center {
+  display: flex;
+  justify-content: center;
+}
+
+.mff-img-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+}
+
+.mff-img-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.mff-img-ring--outer {
+  width: 112%;
+  height: 112%;
+  border-color: var(--gold-soft);
+  opacity: 0.5;
+  animation: mffSpinSlow 24s linear infinite;
+}
+
+.mff-img-ring--inner {
+  width: 104%;
+  height: 104%;
+  border-color: var(--primary);
+  opacity: 0.25;
+  animation: mffSpinSlow 16s linear infinite reverse;
+}
+
+.mff-img-glow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 106, 0.2) 0%,
+    rgba(140, 207, 232, 0.1) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.mff-img {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(201, 168, 106, 0.1),
+    0 16px 48px rgba(201, 168, 106, 0.2);
+  z-index: 1;
+}
+
+/* ---------- بلوكات المحتوى ---------- */
+.mff-block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.mff-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.mff-block:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.mff-block:hover::before {
+  opacity: 1;
+}
+
+/* أنواع مختلفة للبلوكات */
+.mff-block--a::before {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark), var(--primary));
+}
+
+.mff-block--b::before {
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-soft));
+}
+
+.mff-block--c::before {
+  background: linear-gradient(90deg, #e8d5e8, #c9a0c9, #e8d5e8);
+}
+
+.mff-block--d::before {
+  background: linear-gradient(90deg, var(--primary), var(--gold), var(--primary));
+}
+
+.mff-block:hover.mff-block--a { border-color: var(--primary); }
+.mff-block:hover.mff-block--b { border-color: var(--gold); }
+.mff-block:hover.mff-block--c { border-color: #c9a0c9; }
+.mff-block:hover.mff-block--d { border-color: var(--gold); }
+
+/* ---------- ترويسة البلوك ---------- */
+.mff-block-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.mff-block-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.mff-block--a .mff-block-icon { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+.mff-block--b .mff-block-icon { background: linear-gradient(135deg, var(--gold), #b8944e); }
+.mff-block--c .mff-block-icon { background: linear-gradient(135deg, #c9a0c9, #a678a6); }
+.mff-block--d .mff-block-icon { background: linear-gradient(135deg, var(--primary-deep), var(--gold)); }
+
+.mff-block-title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- قائمة العناصر ---------- */
+.mff-block-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mff-block-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.mff-block-item:hover {
+  background: var(--secondary-soft);
+  color: var(--text);
+}
+
+.mff-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.mff-block--a .mff-check { background: rgba(140, 207, 232, 0.2); color: var(--primary-deep); }
+.mff-block--b .mff-check { background: rgba(201, 168, 106, 0.2); color: #8a6d2f; }
+.mff-block--c .mff-check { background: rgba(201, 160, 201, 0.2); color: #8a5a8a; }
+.mff-block--d .mff-check { background: rgba(201, 168, 106, 0.15); color: var(--primary-deep); }
+
+.mff-block-text {
+  flex: 1;
+}
+
+/* ---------- الآيات ---------- */
+.mff-verses-block {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.mff-verses-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--primary-deep);
+}
+
+.mff-verses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mff-verse {
+  padding: 14px 18px;
+  border-inline-start: 3px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.mff-verse:hover {
+  background: linear-gradient(135deg, #fdf6e9, var(--secondary-soft));
+  border-inline-start-color: var(--primary);
+}
+
+.mff-verse p {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  line-height: 2.1;
+  color: var(--primary-deep);
+  margin: 0 0 8px;
+}
+
+.mff-verse-ref {
+  font-style: normal;
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--primary-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
+/* ---------- الخاتمة ---------- */
+.mff-conclusion {
+  margin-top: 8px;
+}
+
+.mff-conclusion-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 40px 44px;
+  background: linear-gradient(160deg, #fdf8ef 0%, var(--gold-soft) 60%, #fdf8ef 100%);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(201, 168, 106, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.mff-conclusion-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.mff-conclusion-box::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+}
+
+.mff-conclusion-cross {
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.mff-conclusion-title {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.mff-conclusion-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 18px;
+}
+
+.mff-conclusion-text {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  line-height: 2.2;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ---------- حركات ---------- */
+@keyframes mffSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- التجاوب ---------- */
+@media (max-width: 900px) {
+  .sr-timeline {
+    padding-right: 0;
+  }
+
+  .sr-timeline-line {
+    right: 24px;
+  }
+
+  .sr-card {
+    margin-inline-start: 0;
+  }
+
+  .mf-timeline-line {
+    left: 24px;
+    transform: none;
+  }
+
+  .mf-row {
+    grid-template-columns: 48px 1fr;
+    margin-bottom: 32px;
+  }
+
+  .mf-row--left .mf-card,
+  .mf-row--right .mf-card {
+    grid-column: 2;
+  }
+
+  .mf-row--left .mf-dot,
+  .mf-row--right .mf-dot {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .sr-timeline {
+    padding-right: 0;
+  }
+
+  .sr-timeline-line {
+    display: none;
+  }
+
+  .sr-card-header {
+    padding: 20px 20px 0;
+  }
+
+  .sr-card-body {
+    padding: 16px 20px 24px;
+  }
+
+  .sr-card-num {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .sr-card-title {
+    font-size: 1.18rem;
+  }
+
+  .sr-field {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sr-field-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sr-field-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sr-verse-text {
+    font-size: 1rem;
+  }
+
+  .mf-timeline-line {
+    display: none;
+  }
+
+  .mf-row {
+    grid-template-columns: 1fr;
+    margin-bottom: 28px;
+  }
+
+  .mf-row--left .mf-card,
+  .mf-row--right .mf-card {
+    grid-column: 1;
+  }
+
+  .mf-row--left .mf-dot,
+  .mf-row--right .mf-dot {
+    display: none;
+  }
+
+  .mf-card {
+    padding: 22px 20px 20px;
+  }
+
+  .mf-card-title {
+    font-size: 1.15rem;
+  }
+
+  .mf-conclusion-inner {
+    padding: 36px 24px;
+  }
+
+  .mf-conclusion-title {
+    font-size: 1.4rem;
+  }
+
+  /* MaryFaith — 900px */
+  .mff-hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mff-center {
+    order: -1;
+  }
+
+  .mff-img-frame {
+    width: 240px;
+    height: 240px;
+  }
+
+  .mff-img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mff-img-frame {
+    width: 200px;
+    height: 200px;
+  }
+
+  .mff-img {
+    width: 180px;
+    height: 180px;
+    border-width: 4px;
+  }
+
+  .mff-img-ring--outer { animation-duration: 32s; }
+  .mff-img-ring--inner { animation-duration: 22s; }
+
+  .mff-block {
+    padding: 20px 18px 18px;
+  }
+
+  .mff-block-title {
+    font-size: 1rem;
+  }
+
+  .mff-block-item {
+    font-size: 0.88rem;
+    padding: 7px 10px;
+  }
+
+  .mff-conclusion-box {
+    padding: 36px 24px 32px;
+  }
+
+  .mff-conclusion-title {
+    font-size: 1.3rem;
+  }
+
+  .mff-conclusion-text {
+    font-size: 0.98rem;
   }
 }
 

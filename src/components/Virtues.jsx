@@ -1,10 +1,10 @@
 import Reveal from "./Reveal.jsx";
 import SectionHead from "./SectionHead.jsx";
-import { Star } from "lucide-react";
-import { siteInfo } from "../data/site.js";
+import { Star, Quote, BookOpen, Heart } from "lucide-react";
+import { maryVirtues } from "../data/maryVirtues.js";
 
 /**
- * بطاقات فضائل العذراء
+ * فضائل السيدة العذراء مريم العشر
  */
 export default function Virtues() {
   return (
@@ -13,18 +13,37 @@ export default function Virtues() {
         <SectionHead
           icon={<Star size={16} aria-hidden="true" />}
           kicker="فضائلها"
-          title="فضائل تعلّمناها من العذراء"
-          subtitle="في كل فضيلة من فضائلها تلمس حياتنا وتقودنا نحو الله."
+          title="فضائل السيدة العذراء مريم"
+          subtitle="عشر فضائل من حياة العذراء تلمس حياتنا وتقودنا نحو الله."
         />
 
-        <div className="grid virtues-grid">
-          {siteInfo.virtues.map((virtue, index) => (
-            <Reveal key={virtue.title} delay={(index % 5) + 1} className="virtue-card">
-              <div className="virtue-icon" aria-hidden="true">
-                <Star size={28} />
+        <div className="virtues-new-grid">
+          {maryVirtues.map((virtue, index) => (
+            <Reveal
+              key={virtue.id}
+              delay={(index % 4) + 1}
+              className="virtue-new-card"
+            >
+              <div className="virtue-new-num" aria-hidden="true">
+                {String(virtue.id).padStart(2, "0")}
               </div>
-              <h3 className="virtue-title">{virtue.title}</h3>
-              <p className="virtue-text">{virtue.text}</p>
+
+              <h3 className="virtue-new-title">{virtue.title}</h3>
+
+              <div className="virtue-new-quote">
+                <Quote size={14} aria-hidden="true" />
+                <p>{virtue.quote}</p>
+              </div>
+
+              <div className="virtue-new-badge">{virtue.virtue}</div>
+
+              <div className="virtue-new-verse">
+                <BookOpen size={14} aria-hidden="true" className="virtue-new-verse-icon" />
+                <blockquote>{virtue.scripture}</blockquote>
+                <span className="virtue-new-ref">{virtue.reference}</span>
+              </div>
+
+              <p className="virtue-new-message">{virtue.message}</p>
             </Reveal>
           ))}
         </div>

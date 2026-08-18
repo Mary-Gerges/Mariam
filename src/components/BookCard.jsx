@@ -1,40 +1,58 @@
-import { ExternalLink, BookOpen } from "lucide-react";
+import { BookOpen, Download } from "lucide-react";
+import { usePdfCover } from "../hooks/usePdfCover.js";
 
-/**
- * بطاقة كتاب قابلة لإعادة الاستخدام
- */
 export default function BookCard({ book }) {
+  const encodedFile = encodeURI(book.file);
+  const coverSrc = usePdfCover(book.file);
+
   return (
-    <article className="card book-card">
-      <div className="book-cover">
-        <img src={book.cover} alt={`غلاف كتاب ${book.title}`} loading="lazy" />
-      </div>
+    <article className="bk-card">
+      <a
+        href={encodedFile}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bk-cover bk-cover-link"
+        aria-label={`فتح كتاب ${book.title}`}
+      >
+        {coverSrc ? (
+          <img src={coverSrc} alt={`غلاف كتاب ${book.title}`} className="bk-cover-img" />
+        ) : (
+          <div className="bk-cover-placeholder">
+            <BookOpen size={48} className="bk-cover-lucide" />
+            <span className="bk-cover-label">{book.title}</span>
+          </div>
+        )}
+        <div className="bk-pdf-badge">
+          <span>PDF</span>
+        </div>
+      </a>
 
-      <span className="book-category">{book.category}</span>
-      <h3 className="book-title">{book.title}</h3>
-      <p className="book-author">{book.author}</p>
-      <p className="card-description">{book.description}</p>
+      <div className="bk-body">
+        <h3 className="bk-title">{book.title}</h3>
+        {book.author && <p className="bk-author">{book.author}</p>}
+        {book.description && <p className="bk-desc">{book.description}</p>}
 
-      <div className="card-actions">
-        <a
-          className="btn btn-gold btn-sm"
-          href={book.link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BookOpen size={16} aria-hidden="true" />
-          اقرأ المزيد
-        </a>
-        <a
-          className="btn btn-outline btn-sm"
-          href={book.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`فتح مصدر كتاب ${book.title}`}
-        >
-          <ExternalLink size={15} aria-hidden="true" />
-          المصدر
-        </a>
+        <div className="bk-actions">
+          <a
+            className="btn btn-primary btn-sm bk-btn"
+            href={encodedFile}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`قراءة كتاب ${book.title}`}
+          >
+            <BookOpen size={15} aria-hidden="true" />
+            قراءة الكتاب
+          </a>
+          <a
+            className="btn btn-outline btn-sm bk-btn"
+            href={encodedFile}
+            download={book.title + ".pdf"}
+            aria-label={`تحميل كتاب ${book.title}`}
+          >
+            <Download size={15} aria-hidden="true" />
+            تحميل
+          </a>
+        </div>
       </div>
     </article>
   );
