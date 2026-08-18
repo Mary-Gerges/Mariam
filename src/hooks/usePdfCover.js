@@ -6,9 +6,10 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 const cache = new Map();
 
 export function usePdfCover(pdfUrl) {
-  const [src, setSrc] = useState(() => cache.get(pdfUrl) || null);
+  const [src, setSrc] = useState(() => (pdfUrl && cache.get(pdfUrl)) || null);
 
   useEffect(() => {
+    if (!pdfUrl) return;
     if (cache.has(pdfUrl)) {
       setSrc(cache.get(pdfUrl));
       return;

@@ -1,9 +1,9 @@
 import { BookOpen, Download } from "lucide-react";
 import { usePdfCover } from "../hooks/usePdfCover.js";
 
-export default function BookCard({ book }) {
+export default function BookCard({ book, cover }) {
   const encodedFile = encodeURI(book.file);
-  const coverSrc = usePdfCover(book.file);
+  const coverSrc = usePdfCover(cover ? book.file : null);
 
   return (
     <article className="bk-card">

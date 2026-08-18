@@ -54,7 +54,7 @@ export default function BooksPage() {
                 <div className="bk-grid">
                   {filtered.map((book, index) => (
                     <Reveal key={book.id} delay={(index % 4) + 1}>
-                      <BookCard book={book} />
+                      <BookCard book={book} cover />
                     </Reveal>
                   ))}
                 </div>
