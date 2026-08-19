@@ -10,6 +10,7 @@ import SermonsPage from "./pages/SermonsPage.jsx";
 import HymnsPage from "./pages/HymnsPage.jsx";
 import ReflectionsPage from "./pages/ReflectionsPage.jsx";
 import BooksPage from "./pages/BooksPage.jsx";
+import MaryLifePage from "./pages/MaryLifePage.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/hymns" element={<HymnsPage />} />
           <Route path="/reflections" element={<ReflectionsPage />} />
           <Route path="/books" element={<BooksPage />} />
+          <Route path="/life" element={<MaryLifePage />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

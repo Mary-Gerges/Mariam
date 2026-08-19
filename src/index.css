@@ -1248,6 +1248,593 @@ button {
 }
 
 /* ============================================================
+   حياة العذراء
+   ============================================================ */
+
+/* --- معاينة الصفحة الرئيسية --- */
+.ml-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.ml-preview-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.ml-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.ml-preview-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.ml-preview-title {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.ml-preview-text {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.ml-preview-quote {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-inline-start: 3px solid var(--gold);
+  background: var(--secondary-soft);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--primary-deep);
+  line-height: 1.8;
+}
+
+.ml-preview-badge {
+  display: inline-block;
+  background: var(--secondary-soft);
+  color: var(--primary-deep);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.ml-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.ml-preview-list li {
+  padding: 5px 0;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  border-bottom: 1px solid var(--border);
+}
+
+.ml-preview-list li:last-child {
+  border-bottom: none;
+}
+
+/* --- صفحة القصة الكاملة --- */
+.ml-intro {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ml-intro p {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+/* --- المرحلة --- */
+.ml-stage {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.ml-stage:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.ml-stage--calm {
+  border-color: var(--gold);
+}
+
+.ml-stage-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--secondary-soft);
+}
+
+.ml-stage-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.ml-stage-title {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ml-stage-body {
+  padding: 28px;
+}
+
+.ml-stage-img-wrap {
+  float: inline-start;
+  margin: 0 0 16px 20px;
+  width: 220px;
+}
+
+.ml-stage-img {
+  width: 100%;
+  border-radius: var(--radius);
+  display: block;
+}
+
+.ml-stage-content p {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+
+.ml-stage-quote {
+  margin: 18px 0;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, var(--secondary-soft), rgba(255,255,255,0.8));
+  border-inline-start: 4px solid var(--gold);
+  border-radius: var(--radius);
+}
+
+.ml-stage-quote p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--primary-deep);
+  margin: 0 0 8px;
+}
+
+.ml-stage-quote cite {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+
+.ml-stage-quote-icon {
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.ml-stage-tradition {
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: var(--secondary-soft);
+  border-radius: var(--radius);
+  border-inline-start: 4px solid var(--primary);
+}
+
+.ml-stage-tradition h4 {
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-deep);
+  margin-bottom: 10px;
+}
+
+.ml-stage-tradition p {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: var(--text-soft);
+  margin-bottom: 8px;
+}
+
+/* --- آيات مميزة --- */
+.ml-verses {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ml-verses-icon {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.ml-verses-title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.ml-verses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.ml-verse {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.ml-verse:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.ml-verse p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--primary-deep);
+  margin-bottom: 10px;
+}
+
+.ml-verse cite {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+
+/* --- التجاوب --- */
+@media (max-width: 768px) {
+  .ml-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-stage-img-wrap {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  .ml-stage-body {
+    padding: 20px;
+  }
+
+  .ml-verses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- رؤس أقسام الصفحة --- */
+.ml-section-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.ml-section-icon {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.ml-section-title {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.ml-section-sub {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- إيمانها --- */
+.ml-faith-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.ml-faith-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: var(--transition);
+}
+
+.ml-faith-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.ml-faith-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.ml-faith-card-head h3 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ml-faith-card-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.ml-faith-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ml-faith-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.ml-faith-list li:last-child {
+  border-bottom: none;
+}
+
+.ml-conclusion {
+  margin-top: 40px;
+  padding: 28px;
+  background: linear-gradient(135deg, var(--secondary-soft), rgba(255,255,255,0.8));
+  border-radius: var(--radius-lg);
+  border-inline-start: 4px solid var(--gold);
+  text-align: center;
+}
+
+.ml-conclusion h3 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.ml-conclusion p {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- المشاعر الروحية --- */
+.ml-sr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.ml-sr-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.ml-sr-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.ml-sr-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+.ml-sr-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.ml-sr-situation {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.ml-sr-response {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.ml-sr-verse {
+  padding: 12px 14px;
+  background: var(--secondary-soft);
+  border-inline-start: 3px solid var(--gold);
+  border-radius: var(--radius-sm);
+}
+
+.ml-sr-verse p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--primary-deep);
+  margin-bottom: 6px;
+}
+
+.ml-sr-verse cite {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+/* --- الأعياد --- */
+.ml-feasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.ml-feast-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.ml-feast-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.ml-feast-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  cursor: pointer;
+  background: var(--secondary-soft);
+  transition: var(--transition);
+}
+
+.ml-feast-head:hover {
+  background: var(--secondary);
+}
+
+.ml-feast-head-text {
+  flex: 1;
+}
+
+.ml-feast-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.ml-feast-dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.ml-feast-coptic {
+  font-weight: 700;
+  color: var(--primary-deep);
+}
+
+.ml-feast-sep {
+  color: var(--border);
+}
+
+.ml-feast-greg {
+  color: var(--text-soft);
+}
+
+.ml-feast-summary {
+  padding: 16px 22px;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.ml-feast-details {
+  padding: 0 22px 20px;
+}
+
+.ml-feast-details p {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+/* --- تجاوب الأقسام الجديدة --- */
+@media (max-width: 768px) {
+  .ml-faith-grid,
+  .ml-sr-grid,
+  .ml-feasts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
    الاقتباس
    ============================================================ */
 
@@ -3286,5 +3873,127 @@ button {
   .story-stage-media img {
     margin-inline-start: 0;
     border-radius: var(--radius);
+  }
+}
+
+/* =============================================
+   StickyNav — شريط التنقل الثابت في صفحة حياة العذراء
+   ============================================= */
+
+.about-layout {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.about-sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  width: 200px;
+  flex-shrink: 0;
+  height: fit-content;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.about-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.sticky-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sticky-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: none;
+  background: none;
+  color: var(--gray-600);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.sticky-nav-item:hover {
+  background: var(--cream);
+  color: var(--primary-deep);
+}
+
+.sticky-nav-item--active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.sticky-nav-item--active:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-layout {
+    flex-direction: column;
+  }
+
+  .about-sidebar {
+    position: sticky;
+    top: 60px;
+    width: 100%;
+    z-index: 50;
+  }
+
+  .sticky-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 8px;
+    gap: 2px;
+    border-radius: var(--radius);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sticky-nav-item {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-layout {
+    padding: 0 16px;
+  }
+
+  .sticky-nav-item span {
+    display: none;
+  }
+
+  .sticky-nav-item {
+    padding: 10px;
+  }
+
+  .sticky-nav-item svg {
+    width: 18px;
+    height: 18px;
   }
 }
