@@ -19,7 +19,7 @@ export default function ReflectionsPage() {
     (reflection) =>
       reflection.title.includes(query) ||
       reflection.excerpt.includes(query) ||
-      reflection.content.some((p) => p.includes(query))
+      (reflection.content && reflection.content.some((p) => p.includes(query)))
   );
 
   return (
