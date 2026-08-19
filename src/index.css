@@ -1204,22 +1204,97 @@ button {
 }
 
 /* --- التجاوب --- */
+@media (max-width: 900px) {
+  .bk-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .bk-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 14px;
+  }
+
+  .bk-card {
+    flex-direction: row;
+    max-height: 160px;
   }
 
   .bk-cover {
-    aspect-ratio: 16 / 9;
+    width: 100px;
+    min-height: 100%;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+
+  .bk-cover-placeholder {
+    padding: 8px;
+  }
+
+  .bk-cover-lucide {
+    width: 26px;
+    height: 26px;
+  }
+
+  .bk-cover-label {
+    font-size: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .bk-pdf-badge {
+    width: 28px;
+    height: 16px;
+    font-size: 0.55rem;
+    top: 4px;
+    inset-inline-end: 4px;
   }
 
   .bk-body {
-    padding: 18px 18px 20px;
+    padding: 10px 12px;
+    gap: 3px;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: right;
   }
 
   .bk-title {
-    font-size: 1.08rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .bk-author {
+    font-size: 0.7rem;
+  }
+
+  .bk-desc {
+    display: none;
+  }
+
+  .bk-actions {
+    flex-direction: row;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .bk-btn {
+    padding: 4px 8px;
+    font-size: 0.68rem;
+  }
+
+  .bk-btn svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .bk-search {
+    max-width: 100%;
+  }
+
+  .bk-search-input {
+    padding: 11px 40px;
+    font-size: 0.85rem;
   }
 
   .bk-modal {
@@ -1228,12 +1303,12 @@ button {
   }
 
   .bk-modal-header {
-    padding: 14px 16px;
+    padding: 12px 14px;
     flex-wrap: wrap;
   }
 
   .bk-modal-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .bk-pdf-frame {
