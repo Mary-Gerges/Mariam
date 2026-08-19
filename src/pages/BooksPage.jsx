@@ -51,9 +51,9 @@ export default function BooksPage() {
               </div>
 
               {filtered.length > 0 ? (
-                <div className="bk-grid">
+                <div className="grid grid-3" style={{ marginTop: 44 }}>
                   {filtered.map((book, index) => (
-                    <Reveal key={book.id} delay={(index % 4) + 1}>
+                    <Reveal key={book.id} delay={(index % 3) + 1}>
                       <BookCard book={book} cover />
                     </Reveal>
                   ))}

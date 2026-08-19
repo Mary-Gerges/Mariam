@@ -6,35 +6,33 @@ export default function BookCard({ book, cover }) {
   const coverSrc = usePdfCover(cover ? book.file : null);
 
   return (
-    <article className="bk-card">
+    <article className="card">
       <a
         href={encodedFile}
         target="_blank"
         rel="noopener noreferrer"
-        className="bk-cover bk-cover-link"
+        className="card-media"
         aria-label={`فتح كتاب ${book.title}`}
       >
         {coverSrc ? (
-          <img src={coverSrc} alt={`غلاف كتاب ${book.title}`} className="bk-cover-img" />
+          <img src={coverSrc} alt={`غلاف كتاب ${book.title}`} />
         ) : (
           <div className="bk-cover-placeholder">
             <BookOpen size={48} className="bk-cover-lucide" />
             <span className="bk-cover-label">{book.title}</span>
           </div>
         )}
-        <div className="bk-pdf-badge">
-          <span>PDF</span>
-        </div>
+        <span className="card-badge">PDF</span>
       </a>
 
-      <div className="bk-body">
-        <h3 className="bk-title">{book.title}</h3>
-        {book.author && <p className="bk-author">{book.author}</p>}
-        {book.description && <p className="bk-desc">{book.description}</p>}
+      <div className="card-body">
+        <h3 className="card-title">{book.title}</h3>
+        {book.author && <p className="card-speaker">{book.author}</p>}
+        {book.description && <p className="card-description">{book.description}</p>}
 
-        <div className="bk-actions">
+        <div className="card-actions">
           <a
-            className="btn btn-primary btn-sm bk-btn"
+            className="btn btn-primary btn-sm"
             href={encodedFile}
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +42,7 @@ export default function BookCard({ book, cover }) {
             قراءة الكتاب
           </a>
           <a
-            className="btn btn-outline btn-sm bk-btn"
+            className="btn btn-outline btn-sm"
             href={encodedFile}
             download={book.title + ".pdf"}
             aria-label={`تحميل كتاب ${book.title}`}
