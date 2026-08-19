@@ -881,8 +881,8 @@ button {
 /* --- الشبكة --- */
 .bk-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   margin-top: 44px;
   justify-items: center;
   justify-content: center;
@@ -1207,7 +1207,7 @@ button {
 @media (max-width: 640px) {
   .bk-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
   .bk-cover {
